@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Blank HTML file</title>
+  <title>Test Preview Links</title>
   <meta name="description" content="Simple HTML file for testing">
   <meta name="author" content="testing">
 
@@ -51,8 +51,6 @@
 
 		<p>Click a button to preview a competition using a specific template for Mobile, Tab or Desktop.</p>
 
-
-
 		<button name="mobile">Mobile</button>
 		<button name="tab">Tab</button>
 		<button name="desktop">Desktop</button>	
@@ -70,8 +68,9 @@
     // Handle button interactivity
     var buttons = document.getElementsByTagName('button');
     var link = document.getElementById('link');
+    // Example third pary link which would be displayed in CMS for creator to copy
+    // That 
     link.innerHTML = '';
-
 
   	function handleRequest(e) {
       var device = event.target.name;
@@ -80,16 +79,13 @@
       var preview = './templates/competition-preview.html?device=' + device;
 
   		if (device === 'mobile') {
-        /*window.open(preview, device, 'width=320, height=640');*/
   			window.open(site, device, 'width=320, height=640');
         link.innerHTML = preview;
    		} else if (device === 'tab') {
-        /*window.open(preview, device, 'width=768, height=1024');*/
   			window.open(site, device, 'width=768, height=1024');
         link.innerHTML = preview;
   		} else {
   			// target is desktop
-        /*window.open(preview, 'desktop');*/
   			window.open(site, 'desktop');
         link.innerHTML = preview;
   		}
@@ -100,8 +96,6 @@
   			handleRequest(e);
   		});
   	}  
-
-    // Generate 3rd party links
 
 
   </script>
