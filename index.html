@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Blank HTML file</title>
+  <meta name="description" content="Simple HTML file for testing">
+  <meta name="author" content="testing">
+
+  <style>
+  	body {
+  		margin: 0;
+  		padding: 30px;
+  		background: #FFF;
+  	}
+  	h1 {
+  		margin: 0;
+  		padding: 0;
+  	}
+  	/* mobile */
+  	@media (min-width: 0px) {
+		  #container {
+		  	width: 320px;
+		  }
+		}
+		/* tab */
+  	@media (min-width: 768px) {
+		  #container {
+		  	width: 768px;
+		  }
+		}
+		/* desktop */
+  	@media (min-width: 1024px) {
+		  #container {
+		  	width: 100%;
+		  }
+		}
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+	<div id="container">
+
+		<h1>Browser Preview</h1>
+
+		<p>Click a button to preview a competition using a specific template for Mobile, Tab or Desktop.</p>
+
+
+
+		<button name="mobile">Mobile</button>
+		<button name="tab">Tab</button>
+		<button name="desktop">Desktop</button>	
+
+    <br /><br />
+
+    <h1>3rd Party Link</h1>
+
+    <p id="link"></p>
+
+	</div>
+
+  <script>
+
+    // Handle button interactivity
+    var buttons = document.getElementsByTagName('button');
+    var link = document.getElementById('link');
+    link.innerHTML = '';
+
+
+  	function handleRequest(e) {
+      var device = event.target.name;
+      var urlParam = '?device=' + device;
+      var site = 'http://www.stv.tv' + urlParam;
+      var preview = './templates/competition-preview.html?device=' + device;
+
+  		if (device === 'mobile') {
+        /*window.open(preview, device, 'width=320, height=640');*/
+  			window.open(site, device, 'width=320, height=640');
+        link.innerHTML = preview;
+   		} else if (device === 'tab') {
+        /*window.open(preview, device, 'width=768, height=1024');*/
+  			window.open(site, device, 'width=768, height=1024');
+        link.innerHTML = preview;
+  		} else {
+  			// target is desktop
+        /*window.open(preview, 'desktop');*/
+  			window.open(site, 'desktop');
+        link.innerHTML = preview;
+  		}
+  	}
+
+  	for (var i=0; i < buttons.length; i++) {
+  		buttons[i].addEventListener('click', function (e) {
+  			handleRequest(e);
+  		});
+  	}  
+
+    // Generate 3rd party links
+
+
+  </script>
+</body>
+</html>
