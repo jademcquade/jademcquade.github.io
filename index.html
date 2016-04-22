@@ -80,14 +80,14 @@
 
   		if (device === 'mobile') {
   			window.open(site, device, 'width=320, height=640');
-        link.innerHTML = preview;
+        link.innerHTML = site;
    		} else if (device === 'tab') {
   			window.open(site, device, 'width=768, height=1024');
-        link.innerHTML = preview;
+        link.innerHTML = site;
   		} else {
   			// target is desktop
   			window.open(site, 'desktop');
-        link.innerHTML = preview;
+        link.innerHTML = site;
   		}
   	}
 
